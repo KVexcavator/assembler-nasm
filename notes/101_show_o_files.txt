@@ -1,0 +1,18 @@
+Как заглянуть в файлы с расширением `.o`?
+objdump:
+```bash
+objdump -d file.o
+objdump -D file.o
+```
+nm — показывает таблицу символов файла:
+```bash
+nm file.o
+```
+readelf — позволяет извлечь информацию из заголовков ELF-файлов:
+```bash
+readelf -a file.o
+```
+strings — ищет текстовые строки в бинарном файле:
+```bash
+strings file.o
+```
