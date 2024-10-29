@@ -1,0 +1,37 @@
+     1                                  ;alive.asm
+     2                                  section.data
+     2          ******************       warning: label alone on a line without a colon might be in error [-w+label-orphan]
+     3 00000000 48656C6C6F2C20576F-       msg1      db    "Hello, World!",10,0    ;Строка с NL и 0
+     3 00000009 726C64210A00       
+     4                                    msg1Len   equ   $-msg1-1                ;Длина без 0
+     5 0000000F 416C69766520616E64-       msg2      db    "Alive and Kicking!",10,0 ;Строка с NL и 0
+     5 00000018 204B69636B696E6721-
+     5 00000021 0A00               
+     6                                    msg2Len   equ   $-msg2-1                ;дляина без 0
+     7 00000023 6501000000000000          radius    dq    357        ; это не строка, можно ли вывести?
+     8 0000002B 1F85EB51B81E0940          pi        dq    3.14       ; это не строка, можно ли вывести?
+     9                                  section.bss
+     9          ******************       warning: label alone on a line without a colon might be in error [-w+label-orphan]
+    10                                  section.text
+    10          ******************       warning: label alone on a line without a colon might be in error [-w+label-orphan]
+    11                                    global main
+    12                                  main:
+    13 00000033 55                        push    rbp         ;Пролог функции
+    14 00000034 4889E5                    mov     rbp,rsp     ;Пролог функции
+    15 00000037 B801000000                mov     rax,1       ;1= запись
+    16 0000003C BF01000000                mov     rdi,1       ;1= в устройство стандартного вывода stdout
+    17 00000041 48BE-                     mov     rsi,msg1    ;выводимая строка
+    17 00000043 [0000000000000000] 
+    18 0000004B BA0E000000                mov     rdx,msg1Len ;длина строки
+    19 00000050 0F05                      syscall             ;вывод строки
+    20 00000052 B801000000                mov     rax,1       ;1= запись
+    21 00000057 BF01000000                mov     rdi,1       ;1= в поток стандартного выввода stdout
+    22 0000005C 48BE-                     mov     rsi,msg2    ;Вывод строки
+    22 0000005E [0F00000000000000] 
+    23 00000066 BA13000000                mov     rdx,msg2Len ;Длина строки
+    24 0000006B 0F05                      syscall             ;вывод строки
+    25 0000006D 4889EC                    mov     rsp,rbp     ;эпилог функции
+    26 00000070 5D                        pop     rbp         ;эпилог функуии
+    27 00000071 B83C000000                mov     rax,60      ;60= выход
+    28 00000076 BF00000000                mov     rdi,0       ;0= код успешного завершения
+    29 0000007B 0F05                      syscall             ;выход 
