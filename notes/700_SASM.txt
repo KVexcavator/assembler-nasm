@@ -1,0 +1,9 @@
+Simple ASM. Это кроссплатформенная IDE с открытым исходным кодом. SASM поддерживает подсветку синтаксиса и отладку в режиме графического пользовательского интерфейса.
+
+https://dman95.github.io/SASM/
+sudo dpkg -i sasm_3.14.0-1_amd64.deb
+$sasm
+$sasm jump.asm
+--------------------------
+time ./jumploop
+time ./betterloop

@@ -1,0 +1,7 @@
+Отладчик Data Display Debugger (DDD) – это инструментальное средство от­ладки с графическим пользовательским интерфейсом для систем Linux
+```bash
+sudo apt install ddd
+```
+```bash
+ddd move
+```
